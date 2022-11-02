@@ -1,0 +1,32 @@
+---
+name: "Generate Formula"
+
+on:
+  workflow_dispatch:
+    inputs:
+      tap_version:
+        description: 'Version number of release to tap'
+        required: true
+
+jobs:
+  generate-formula:
+    name: "Generate a formuala file"
+    runs-on: ubuntu-latest
+    steps:
+
+       - name: "Checkout"
+         uses: actions/checkout@v2
+
+       - run: echo 'Release ${{ github.event.inputs.tap_version }}'
+
+       - name: "Create Checksum"
+         run: |
+          tap_sha=unset
+          wget https://github.com/a1ecbr0wn/bcd/archive/refs/tags/${{ github.event.inputs.tap_version }}.tar.gz .
+            if [ -f ./${{ github.event.inputs.tap_version }}.tar.gz ]; then
+              tap_sha=shasum -a 256 ${{ github.event.inputs.tap_version }}.tar.gz | sed 's/ .*//'
+            else
+              echo "Source file [${{ github.event.inputs.tap_version }}.tar.gz] not downloaded"
+            fi
+            echo "tap_sha=$tap_sha" >> $GITHUB_ENV
+            echo "tap_sha=$tap_sha"
