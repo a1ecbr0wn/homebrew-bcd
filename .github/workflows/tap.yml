@@ -60,8 +60,8 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           commit-message: Update formula to bcd ${{ env.tap_version }}
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          # committer: GitHub <noreply@github.com>
+          # author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: bcd-${{ env.tap_version }}
           delete-branch: true
