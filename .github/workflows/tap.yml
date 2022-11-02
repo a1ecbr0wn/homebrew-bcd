@@ -39,7 +39,7 @@ jobs:
           ls -al
           shasum -a 256 ${{ env.tap_version }}.tar.gz
           if [ -f ${{ env.tap_version }}.tar.gz ]; then
-            tap_sha=shasum -a 256 ${{ env.tap_version }}.tar.gz | sed 's/ .*//'
+            tap_sha="$(shasum -a 256 ${{ env.tap_version }}.tar.gz | sed 's/ .*//')""
           else
             echo "Source file [${{ env.tap_version }}.tar.gz] not downloaded"
           fi
