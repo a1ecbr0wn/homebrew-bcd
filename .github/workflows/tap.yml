@@ -30,12 +30,12 @@ jobs:
 
       - name: "Create Checksum"
         run: |
-          tap_sha=""
+          tap_sha256=""
           wget https://github.com/a1ecbr0wn/bcd/archive/refs/tags/${{ env.tap_version }}.tar.gz
           if [ -f ${{ env.tap_version }}.tar.gz ]; then
-            tap_sha="$(shasum -a 256 ${{ env.tap_version }}.tar.gz | sed 's/ .*//')"
-            echo "tap_sha=$tap_sha" >> $GITHUB_ENV
-            echo "SHA256 Checksum: [$tap_sha]"
+            tap_sha256="$(shasum -a 256 ${{ env.tap_version }}.tar.gz | sed 's/ .*//')"
+            echo "tap_sha256=$tap_sha256" >> $GITHUB_ENV
+            echo "SHA256 Checksum: [$tap_sha256]"
             rm ${{ env.tap_version }}.tar.gz
           else
             echo "Source file [${{ env.tap_version }}.tar.gz] not downloaded"
@@ -44,3 +44,12 @@ jobs:
 
       - name: "Checkout"
         uses: actions/checkout@v2
+
+      - name: "Create the formula from the template"
+        run: |
+          cp template/bcd.rb Formula/bcd.rb
+          cat Formula/bcd.rb
+          sed -i 's/:tap_version/${{ env.tap_version }}/' Formula/bcd.rb
+          sed -i 's/:tap_sha256/${{ env.tap_sha256 }}/' Formula/bcd.rb
+          echo " --- "
+          cat Formula/bcd.rb
