@@ -1,7 +1,7 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://rubydoc.brew.sh/Formula
 class Bcd < Formula
-  url "https://github.com/a1ecbr0wn/bcd/archive/refs/tags/${tap-version}.tar.gz"
+  url "https://github.com/a1ecbr0wn/bcd/archive/refs/tags/:tap_version.tar.gz"
   version ":tap_version"
   sha256 ":tap_sha256"
   desc "Bookmark Change Directory - `bcd` is a way to `cd` to directories that have been bookmarked."
