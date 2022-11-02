@@ -37,6 +37,7 @@ jobs:
           tap_sha=unset
           wget https://github.com/a1ecbr0wn/bcd/archive/refs/tags/${{ env.tap_version }}.tar.gz
           ls -al
+          shasum -a 256 ${{ env.tap_version }}.tar.gz
           if [ -f ${{ env.tap_version }}.tar.gz ]; then
             tap_sha=shasum -a 256 ${{ env.tap_version }}.tar.gz | sed 's/ .*//'
           else
