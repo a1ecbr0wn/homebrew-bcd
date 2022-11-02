@@ -3,6 +3,13 @@ name: "Generate Formula"
 
 on:
   push:
+    branches:
+      - '**'
+    inputs:
+      tap_version:
+        description: 'Version number of release to tap'
+        required: true
+        default: "v0.2.2"
   workflow_dispatch:
     inputs:
       tap_version:
