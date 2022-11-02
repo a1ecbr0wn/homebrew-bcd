@@ -75,9 +75,9 @@ jobs:
           labels: |
             homebrew
             automated pr
-          assignees: a1ecbr0wn
-          reviewers: a1ecbr0wn
-          team-reviewers: |
-            owners
-            maintainers
+          # assignees: a1ecbr0wn
+          # reviewers: a1ecbr0wn
+          # team-reviewers: |
+          #   owners
+          #   maintainers
           draft: false
