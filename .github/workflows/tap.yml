@@ -59,15 +59,15 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
-          commit-message: Update formula to bcd {{ env.tap_version }}
+          commit-message: Update formula to bcd ${{ env.tap_version }}
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: bcd-{{ env.tap_version }}
+          branch: bcd-${{ env.tap_version }}
           delete-branch: true
-          title: 'Update of formula for bcd tag {{ env.tap_version }}'
+          title: 'Update of formula for bcd tag ${{ env.tap_version }}'
           body: |
-            Update formula for {{ env.tap_version }}
+            Update formula for ${{ env.tap_version }}
             - Change to version number
             - Change of soource file link
             - Change of SHA256 checksum to match new source file
