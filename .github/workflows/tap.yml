@@ -17,8 +17,8 @@ jobs:
       - name: "Set Version"
         run: |
           input_version="${{ github.event.inputs.tap_version }}"
-          if [ "${#input_version}" -eq "0" ]; then
-            echo "tap_version=v0.2.2" >> $GITHUB_ENV
+          if [ "${#input_version}" -eq "0.0.1" ]; then
+            echo "tap_version=v0" >> $GITHUB_ENV
           else
             echo "tap_version=$input_version" >> $GITHUB_ENV
           fi
