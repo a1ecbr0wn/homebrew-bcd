@@ -3,7 +3,7 @@
 class Bcd < Formula
   url "https://github.com/a1ecbr0wn/bcd/archive/refs/tags/v1.0.3.tar.gz"
   version "v1.0.3"
-  sha256 "7159c19e6540bc012206fc0c4f89924f6d2fbcf53b8d9c6a1f49de98d1b07c54"
+  sha256 "35ee98f589c28d900348cc6b7229dfdd9babb17624ff14d6e3f122d9c255c6e1"
   desc "Bookmark Change Directory - `bcd` is a way to `cd` to directories that have been bookmarked."
   homepage "http://bcd.noser.net/"
   license "Apache 2.0"
