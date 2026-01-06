@@ -14,4 +14,3 @@ class Bcd < Formula
     system "cargo", "install", *std_cargo_args
   end
 end
-  
